@@ -56,7 +56,7 @@ El proyecto está compuesto por las siguientes clases y subclases:
     - `enPromocion`: Indica si el servicio está en promoción.
     - `codigoServicio` : Set de codigos de servicio (Se utiliza para que no se repitan los codigos de los servicios)
 - **Métodos**:
-    -`validarCodigoServicio(String codServicio)` : Valida la longitud de codigo (tiene que ser 6 caracteres) y codigo unico.      
+    - `validarCodigoServicio(String codServicio)` : Valida la longitud de codigo (tiene que ser 6 caracteres) y codigo unico.      
 - **Métodos Abstractos**:
     - `calcularPrecioFinal(LocalDate dia)`: Método abstracto para calcular el precio final del servicio, según el día.
     

@@ -54,7 +54,7 @@ El proyecto está compuesto por las siguientes clases y subclases:
     - `codServicio`: Código del servicio (6 caracteres, con validación).
     - `porcentajeDescuento`: Porcentaje de descuento aplicable al servicio.
     - `enPromocion`: Indica si el servicio está en promoción.
-    - `codigoServicio` : Set de codigos de servicio (Se utiliza para que no se repitan los codigos de los servicios)
+    - `codigoServicio` : Set de codigos de servicio (Se utiliza para que no se repitan los codigos de los servicios).
 - **Métodos**:
     - `validarCodigoServicio(String codServicio)` : Valida la longitud de codigo (tiene que ser 6 caracteres) y codigo unico.      
 - **Métodos Abstractos**:

@@ -98,8 +98,4 @@ El proyecto está compuesto por las siguientes clases y subclases:
 
 ### 5. **Excepción Personalizada** (Clase exception)
     -ErrorCodigoServicioException: Clase de excepción personalizada para manejar errores relacionados con códigos de servicio. Incluye validaciones como longitud del código y unicidad.
-<<<<<<< HEAD
-  
-=======
-  
->>>>>>> f0eb99eb1aaa0c2dd49d39b86eb1eb8432206e23
+

@@ -57,13 +57,7 @@ public class Gastronomia extends Servicio {
      */
     @Override
     public String toString() {
-        return "Gastronomia{" +
-                "gastronomia='" + gastronomia + '\'' +
-                ", precio=" + precio +
-                ", diaSemDesc=" + diaSemDesc +
-                ", codServicio='" + codServicio + '\'' +
-                ", porcentajeDescuento=" + porcentajeDescuento +
-                ", enPromocion=" + enPromocion +
-                '}';
+        return String.format("Gastronomia: gastronomia='%s', precio=%.2f, diaSemDesc=%s, %s",
+                gastronomia, precio, diaSemDesc, super.toString());
     }
 }

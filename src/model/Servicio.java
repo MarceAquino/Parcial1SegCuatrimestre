@@ -39,10 +39,10 @@ public abstract class Servicio {
      * @throws ErrorCodigoServicioException si el código es nulo, no tiene 6 caracteres o ya está registrado.
      */
     private void validarCodigoServicio(String codServicio) throws ErrorCodigoServicioException {
-        if (Servicio.this.codServicio == null || Servicio.this.codServicio.length() != 6) {
+        if (codServicio == null || codServicio.length() != 6) {
             throw new ErrorCodigoServicioException("El código del servicio debe tener 6 caracteres.");
         }
-        if (!codigoServicios.add(Servicio.this.codServicio)) {
+        if (!codigoServicios.add(codServicio)) {
             throw new ErrorCodigoServicioException("El código ya se encuentra registrado.");
         }
     }
@@ -59,10 +59,7 @@ public abstract class Servicio {
      */
     @Override
     public String toString() {
-        return "Servicio{" +
-                "codServicio='" + codServicio + '\'' +
-                ", porcentajeDescuento=" + porcentajeDescuento +
-                ", enPromocion=" + enPromocion +
-                '}';
+        return String.format("Servicio: codServicio='%s', porcentajeDescuento=%.2f, enPromocion=%s",
+                codServicio, porcentajeDescuento, (enPromocion ? "Sí" : "No"));
     }
 }

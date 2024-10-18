@@ -43,12 +43,7 @@ public class Hospedaje extends Servicio {
      */
     @Override
     public String toString() {
-        return "Hospedaje{" +
-                "hospedaje='" + hospedaje + '\'' +
-                ", precioPorNoche=" + precioPorNoche +
-                ", codServicio='" + codServicio + '\'' +
-                ", porcentajeDescuento=" + porcentajeDescuento +
-                ", enPromocion=" + enPromocion +
-                '}';
+        return String.format("Hospedaje: hospedaje='%s', precioPorNoche=%.2f, %s",
+                hospedaje, precioPorNoche, super.toString());
     }
 }

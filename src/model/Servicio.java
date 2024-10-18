@@ -19,7 +19,7 @@ public abstract class Servicio {
     private static final Set<String> codigoServicios = new HashSet<>();
 
     protected Servicio(String codServicio, double porcentajeDescuento, boolean enPromocion) {
-        validarCodigoVehiculo(codServicio);
+        validarCodigoServicio(codServicio);
         this.codServicio = codServicio;
         this.porcentajeDescuento = porcentajeDescuento;
         this.enPromocion = enPromocion;
@@ -35,14 +35,14 @@ public abstract class Servicio {
 
     /**
      * Valida el código del servicio.
-     * @param codVehiculo el código del servicio a validar.
+     * @param codServicio el código del servicio a validar.
      * @throws ErrorCodigoServicioException si el código es nulo, no tiene 6 caracteres o ya está registrado.
      */
-    private void validarCodigoVehiculo(String codVehiculo) throws ErrorCodigoServicioException {
-        if (codVehiculo == null || codVehiculo.length() != 6) {
-            throw new ErrorCodigoServicioException("El código del vehículo debe tener 7 caracteres.");
+    private void validarCodigoServicio(String codServicio) throws ErrorCodigoServicioException {
+        if (Servicio.this.codServicio == null || Servicio.this.codServicio.length() != 6) {
+            throw new ErrorCodigoServicioException("El código del servicio debe tener 6 caracteres.");
         }
-        if (!codigoServicios.add(codVehiculo)) {
+        if (!codigoServicios.add(Servicio.this.codServicio)) {
             throw new ErrorCodigoServicioException("El código ya se encuentra registrado.");
         }
     }

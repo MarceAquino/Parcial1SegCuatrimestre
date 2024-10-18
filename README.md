@@ -90,7 +90,7 @@ El proyecto está compuesto por las siguientes clases y subclases:
     - `traerServicio(boolean enPromocion, LocalDate dia)`: Retorna una lista de servicios en promoción y que apliquen descuentos según la fecha.
    
     Agrega un servicio de gastronomía al sistema.
-     -`agregarGastronomia(String codServicio, double porcentajeDescuento, boolean enPromocion, String gastronomia, double precio, int diaSemDesc)`:
+     - `agregarGastronomia(String codServicio, double porcentajeDescuento, boolean enPromocion, String gastronomia, double precio, int diaSemDesc)`:
     
     Agrega un servicio de hospedaje al sistema.
     - `agregarHospedaje(String codServicio, double porcentajeDescuento, boolean enPromocion, String hospedaje, double precioPorNoche)`:

@@ -55,8 +55,9 @@ El proyecto está compuesto por las siguientes clases y subclases:
     - `porcentajeDescuento`: Porcentaje de descuento aplicable al servicio.
     - `enPromocion`: Indica si el servicio está en promoción.
     - `codigoServicio` : Set de codigos de servicio (Se utiliza para que no se repitan los codigos de los servicios)
+- **Métodos**:
+    -`validarCodigoServicio(String codServicio)` : Valida la longitud de codigo (tiene que ser 6 caracteres) y codigo unico.      
 - **Métodos Abstractos**:
-    -`validarCodigoServicio(String codServicio)` : Valida la longitud de codigo (tiene que ser 6 caracteres) y codigo unico.
     - `calcularPrecioFinal(LocalDate dia)`: Método abstracto para calcular el precio final del servicio, según el día.
     
 
@@ -76,10 +77,9 @@ El proyecto está compuesto por las siguientes clases y subclases:
     - `precio`: Precio del servicio gastronómico.
     - `diaSemDesc`: Día de la semana en que se aplica el descuento.
 - **Métodos**:
-    -`validacionDiaDeLaSemana(int diaSemDesc)` : valida que el numero ingresado se encuentre entre (1-7)
+    - `validacionDiaDeLaSemana(int diaSemDesc)` : valida que el numero ingresado se encuentre entre (1-7)
     - `calcularPrecioFinal(LocalDate dia)`: Aplica el porcentaje de descuento si el día corresponde al día de descuento
       y si está en promoción.
-
 ### 4. **Sistema** (Clase Principal)
 
 - **Atributos**:
@@ -95,3 +95,7 @@ El proyecto está compuesto por las siguientes clases y subclases:
     -
     `agregarHospedaje(String codServicio, double porcentajeDescuento, boolean enPromocion, String hospedaje, double precioPorNoche)`:
     Agrega un servicio de hospedaje al sistema.
+
+### 5. **Excepción Personalizada** (Clase exception)
+    -ErrorCodigoServicioException: Clase de excepción personalizada para manejar errores relacionados con códigos de servicio. Incluye validaciones como longitud del código y unicidad.
+  

@@ -3,66 +3,90 @@
 ---
 
 ## Alumno
-**Nombre del alumno**: [Marcelo Damian Aquino]
+
+**Nombre del alumno**: [Tu Nombre Aquí]
 
 ## 📄 Descripción del Proyecto
 
-Este proyecto es un sistema de gestión diseñado para servicios de hospedaje y gastronomía, implementando conceptos de Programación Orientada a Objetos (POO) en Java. El objetivo es crear una aplicación que permita gestionar estos servicios, calcular precios finales con promociones, y validar atributos mediante excepciones cuando sea necesario.
+Este proyecto es un sistema de gestión diseñado para administrar servicios de hospedaje y gastronomía, implementando
+conceptos de Programación Orientada a Objetos (POO) en Java. El objetivo es crear una aplicación que permita gestionar
+estos servicios, calcular precios finales con promociones y aplicar validaciones utilizando excepciones.
 
 ### Objetivos
+
 - Implementar un modelo orientado a objetos que refleje la gestión de servicios de hospedaje y gastronomía.
-- Aplicar promociones y descuentos de forma dinámica.
-- Validar la integridad de los datos utilizando excepciones adecuadas.
+- Aplicar promociones y descuentos según las condiciones definidas.
+- Validar la integridad de los datos utilizando excepciones específicas.
 
 ## 🛠️ Funcionalidades del Sistema
 
 El sistema ofrece las siguientes funcionalidades:
 
-### 1. Gestión de Hospedaje
-- **Tipos de Habitaciones**: Administración de habitaciones estándar y deluxe.
-- **Servicios Adicionales**: Opción de agregar servicios de limpieza y desayuno.
-- **Aplicación de Descuentos**: Descuentos aplicables según la duración de la estadía.
+### 1. Gestión de Servicios
 
-### 2. Gestión de Gastronomía
-- **Menús**: Posibilidad de agregar diferentes tipos de menús para los servicios de alimentación.
-- **Cálculo de Precios**: Precios ajustables con descuentos según el tipo de comida y el día de la semana.
+- **Servicios de Hospedaje**: Administración de hospedajes como habitaciones o cabañas.
+- **Servicios de Gastronomía**: Manejo de servicios gastronómicos como menús específicos.
+- **Aplicación de Promociones**: Aplicación de descuentos según el día de la semana y si el servicio está en promoción.
 
-### 3. Promociones y Descuentos
-- Implementación de promociones para estadías prolongadas.
-- Penalizaciones por no cumplir con los requisitos establecidos, como el número mínimo de noches.
+### 2. Promociones y Descuentos
 
-### 4. Validaciones
-- Manejo de excepciones para situaciones como códigos duplicados, valores inválidos, y violaciones de las restricciones de negocio.
+- Promociones aplicables a servicios de hospedaje durante días hábiles (lunes a viernes).
+- Descuentos para servicios de gastronomía basados en el día de la semana seleccionado.
 
-### 5. Cálculo de Precio Final
-- Método para calcular el precio final del servicio, que incluye todas las promociones y servicios adicionales seleccionados.
+### 3. Validaciones
+
+- Manejo de excepciones para situaciones como códigos de servicio inválidos o duplicados, y atributos que no cumplen con
+  las reglas del negocio.
+
+### 4. Cálculo de Precio Final
+
+- Método para calcular el precio final del servicio, teniendo en cuenta promociones y descuentos según el día y el tipo
+  de servicio.
 
 ## 📦 Estructura del Proyecto
 
 El proyecto está compuesto por las siguientes clases y subclases:
 
 ### 1. **Servicio** (Clase Abstracta)
+
 - **Atributos**:
-   - `codigo`: Código del servicio.
-   - `nombre`: Nombre del servicio.
-   - `precioBase`: Precio base del servicio.
+    - `codServicio`: Código del servicio (6 caracteres, con validación).
+    - `porcentajeDescuento`: Porcentaje de descuento aplicable al servicio.
+    - `enPromocion`: Indica si el servicio está en promoción.
 - **Métodos Abstractos**:
-   - `calcularPrecioFinal()`: Método que debe ser implementado en las subclases para calcular el precio final del servicio.
+    - `calcularPrecioFinal(LocalDate dia)`: Método abstracto para calcular el precio final del servicio, según el día.
 
 ### 2. **Hospedaje** (Subclase de Servicio)
+
 - **Atributos Específicos**:
-   - `numeroNoches`: Número de noches reservadas.
-   - `servicioLimpieza`: Indica si se incluye el servicio de limpieza.
-   - `desayuno`: Indica si se incluye el desayuno.
-   - `tarifaExtra`: Tarifa adicional por servicios extras.
-   - `promociones`: Lista de promociones aplicables.
+    - `hospedaje`: Tipo de hospedaje (ej. Cabaña, Habitación).
+    - `precioPorNoche`: Precio por noche de hospedaje.
 - **Métodos**:
-   - `calcularPrecioTotal()`: Calcula el precio total basado en el número de noches, promociones y servicios adicionales.
+    - `calcularPrecioFinal(LocalDate dia)`: Aplica descuentos entre semana (lunes a viernes) si el servicio está en
+      promoción.
 
 ### 3. **Gastronomía** (Subclase de Servicio)
+
 - **Atributos Específicos**:
-   - `tipoMenu`: Tipo de menú seleccionado (desayuno, almuerzo, cena).
-   - `diaSemana`: Día de la semana en que se solicita el servicio.
-   - `aplicaDescuento`: Indica si se aplica un descuento.
+    - `gastronomia`: Tipo de servicio gastronómico (ej. desayuno, almuerzo).
+    - `precio`: Precio del servicio gastronómico.
+    - `diaSemDesc`: Día de la semana en que se aplica el descuento.
 - **Métodos**:
-   - `calcularPrecioFinal()`: Calcula el precio final de acuerdo con el menú y las promociones disponibles.
+    - `calcularPrecioFinal(LocalDate dia)`: Aplica el porcentaje de descuento si el día corresponde al día de descuento
+      y si está en promoción.
+
+### 4. **Sistema** (Clase Principal)
+
+- **Atributos**:
+    - `lstServicio`: Lista de servicios disponibles (hospedaje y gastronomía).
+- **Métodos**:
+    - `traerServicio(String codServicio)`: Retorna un servicio específico según su código.
+    - `traerServicio(boolean enPromocion)`: Retorna una lista de servicios que están en promoción.
+    - `traerServicio(boolean enPromocion, LocalDate dia)`: Retorna una lista de servicios en promoción y que apliquen
+      descuentos según la fecha.
+    -
+    `agregarGastronomia(String codServicio, double porcentajeDescuento, boolean enPromocion, String gastronomia, double precio, int diaSemDesc)`:
+    Agrega un servicio de gastronomía al sistema.
+    -
+    `agregarHospedaje(String codServicio, double porcentajeDescuento, boolean enPromocion, String hospedaje, double precioPorNoche)`:
+    Agrega un servicio de hospedaje al sistema.

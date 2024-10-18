@@ -92,6 +92,6 @@ El proyecto está compuesto por las siguientes clases y subclases:
     - `agregarHospedaje(String codServicio, double porcentajeDescuento, boolean enPromocion, String hospedaje, double precioPorNoche)`: Agrega un servicio de hospedaje al sistema.
 
 ### 5. **Excepción Personalizada** (Clase exception)
-- **Exception Específicos**:
+- **Exception Específicas**:
     - `ErrorCodigoServicioException`: Clase de excepción personalizada para manejar errores relacionados con códigos de servicio. Incluye validaciones como longitud del código y unicidad.
 

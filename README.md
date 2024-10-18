@@ -88,12 +88,8 @@ El proyecto está compuesto por las siguientes clases y subclases:
     - `traerServicio(String codServicio)`: Retorna un servicio específico según su código.
     - `traerServicio(boolean enPromocion)`: Retorna una lista de servicios que están en promoción.
     - `traerServicio(boolean enPromocion, LocalDate dia)`: Retorna una lista de servicios en promoción y que apliquen descuentos según la fecha.
-   
-    Agrega un servicio de gastronomía al sistema.
-     - `agregarGastronomia(String codServicio, double porcentajeDescuento, boolean enPromocion, String gastronomia, double precio, int diaSemDesc)`:
-    
-    Agrega un servicio de hospedaje al sistema.
-    - `agregarHospedaje(String codServicio, double porcentajeDescuento, boolean enPromocion, String hospedaje, double precioPorNoche)`:
+    - `agregarGastronomia(String codServicio, double porcentajeDescuento, boolean enPromocion, String gastronomia, double precio, int diaSemDesc)`: Agrega un servicio de gastronomía al sistema
+    - `agregarHospedaje(String codServicio, double porcentajeDescuento, boolean enPromocion, String hospedaje, double precioPorNoche)`: Agrega un servicio de hospedaje al sistema.
 
 ### 5. **Excepción Personalizada** (Clase exception)
     -ErrorCodigoServicioException: Clase de excepción personalizada para manejar errores relacionados con códigos de servicio. Incluye validaciones como longitud del código y unicidad.
